@@ -15,17 +15,15 @@
             min-height: 100vh;
             margin: 0;
             background-color: #ffffff;
-              
         }
 
         #video-container {
-            width: 640px;
-            height: 480px;
+            width: 100%; /* Take up full width of parent */
+            max-width: 640px; /* Limit width on larger screens */
+            height: auto; /* Adjust height based on aspect ratio */
             margin-bottom: 20px;
             position: relative; /* Needed for absolute positioning of the overlay */
         }
-
-
 
         video {
             width: 100%;
@@ -37,25 +35,25 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Center the text */
+            transform: translate(-50%, -50%);
             color: white;
             font-size: 4em;
-           /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); *//* Add a text shadow for readability */
-            z-index: 10; /* Ensure the overlay is on top of the video */
-            white-space: nowrap; /* Prevent text from wrapping */
+            z-index: 10;
+            white-space: nowrap;
             font-family: "adobe-handwriting-ernie", sans-serif;
-font-weight: 400;
-font-style: normal;
+            font-weight: 400;
+            font-style: normal;
+            text-align: center;
+            width: 90%;
         }
 
         #description {
             text-align: center;
             padding: 0 20px;
-            color:gray;
+            color: gray;
             font-weight: 200;
             font-size: .8em;
             letter-spacing: .2em;
-        
         }
 
         video::-webkit-media-controls {
@@ -67,24 +65,19 @@ font-style: normal;
         }
 
         @media (max-width: 767px) {
-    #video-container {
-        max-width: 320px; /* Limit width on smaller screens */
-    }
+            #video-container {
+                max-width: 320px;
+            }
 
-
-    #video-overlay {
-
-
-       font-size: 3em; 
-    }
-}
-
-å
+            #video-overlay {
+                font-size: 3em;
+            }
+        }
     </style>
 </head>
 <body>
     <div id="video-container">
-        <video autoplay muted loop>
+        <video id="myVideo" autoplay muted loop>
             <source src="IMG_7239.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
